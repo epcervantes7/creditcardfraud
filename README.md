@@ -1,8 +1,10 @@
 # creditcardfraud
 for Datalab
-Rapid EDA.ipynb 
-Batch prediction with prefect.ipynb
-Online prediction client.ipynb
-Online Prediction Server.ipynb
-Train and hyperparameter tuning .ipynb
-requirements.txt
+# notebooks
+
+1. Rapid EDA.ipynb 
+2. Batch prediction with prefect.ipynb
+3. Online prediction client.ipynb
+4. Online Prediction Server.ipynb
+5. Train and hyperparameter tuning .ipynb
+6. requirements.txt
