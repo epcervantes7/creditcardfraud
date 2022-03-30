@@ -15,3 +15,6 @@ jobs:
           python test.py
           
           echo "## Model CI" > report.md
+          cml-publish image.png --md >> report.md
+          
+          cml-send-comment report.md
