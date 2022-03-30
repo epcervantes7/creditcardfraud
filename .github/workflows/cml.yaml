@@ -16,6 +16,6 @@ jobs:
           
           echo "# Model CI" > report.md
           echo "## Prediction" > report.md
-          cml-publish predicted.csv --md >> report.md
+          cat predited.csv >>  report.md
           
           cml-send-comment report.md
