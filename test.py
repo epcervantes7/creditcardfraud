@@ -15,7 +15,7 @@ from sklearn.preprocessing import StandardScaler
 
 plt.style.use('ggplot')
 #train
-df = pd.read_csv("data/creditcard.csv")
+df = pd.read_csv("test.csv")
 df.shape
 #training data distribution
 df['Class'].value_counts().plot.bar()
