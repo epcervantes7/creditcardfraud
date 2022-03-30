@@ -1,21 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
 
-print("hola mundo")
+# Fixing random state for reproducibility
+np.random.seed(19680801)
 
-import joblib
-import pandas as pd
-import seaborn as sns
-from matplotlib import pyplot as plt
-from sklearn.datasets import make_classification
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import (balanced_accuracy_score, classification_report,
-                             confusion_matrix, roc_auc_score)
-from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 
-plt.style.use('ggplot')
-#train
-df = pd.read_csv("test.csv")
-df.shape
-#training data distribution
-df['Class'].value_counts().plot.bar()
+N = 50
+x = np.random.rand(N)
+y = np.random.rand(N)
+colors = np.random.rand(N)
+area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
+
+plt.scatter(x, y, s=area, c=colors, alpha=0.5)
+plt.show()
