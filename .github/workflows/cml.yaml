@@ -1,0 +1,17 @@
+name: datalab
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v3
+      - uses: iterative/setup-cml@v1
+      - name: cml-run
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install -r requirements.txt
+          python test.py
+          
+          echo "## Model CI" > report.md
