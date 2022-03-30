@@ -17,10 +17,9 @@
 
 import requests
 from datetime import timedelta, datetime
-
 import pandas as pd
-
 import joblib
+import numpy as np
 
 MODEL = joblib.load('best_gs_pipeline.pkl')
 df = pd.read_csv("test.csv")
