@@ -1,29 +1,28 @@
-# import numpy as np
-# import matplotlib.pyplot as plt
-
-# # Fixing random state for reproducibility
-# np.random.seed(19680801)
-
-
-# N = 50
-# x = np.random.rand(N)
-# y = np.random.rand(N)
-# colors = np.random.rand(N)
-# area = (30 * np.random.rand(N))**2  # 0 to 15 point radii
-
-# plt.scatter(x, y, s=area, c=colors, alpha=0.5)
-# plt.savefig("image.png",dpi=120) 
-
-
-import requests
-from datetime import timedelta, datetime
 import pandas as pd
+from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 import joblib
-import numpy as np
 
 MODEL = joblib.load('best_gs_pipeline.pkl')
 df = pd.read_csv("test.csv")
-data = df.iloc[:,:-1]
-predicted = MODEL.predict(data)
-print(predicted)
-np.savetxt("predicted.csv", predicted)
+X_test = df.iloc[:,:-1]
+y_test = df['target']
+class_names = ['Normal','Fraud']
+titles_options = [
+    ("Confusion matrix, without normalization","cf", None),
+    ("Normalized confusion matrix","ncf", "true"),
+]
+for title,fln, normalize in titles_options:
+    disp = ConfusionMatrixDisplay.from_estimator(
+        MODEL,
+        X_test,
+        y_test,
+        display_labels=class_names,
+        cmap=plt.cm.Blues,
+        normalize=normalize,
+    )
+    disp.ax_.set_title(title)
+
+#     print(title)
+#     print(disp.confusion_matrix)
+    plt.savefig(fln+".png",dpi=120) 
