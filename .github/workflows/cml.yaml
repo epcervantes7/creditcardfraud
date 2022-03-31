@@ -15,7 +15,7 @@ jobs:
           python test.py
           
           echo "# Model CI" > report.md
-          echo "## Prediction" > report.md
-          cat predicted.csv >>  report.md
+          cml-publish cf.png --md >> report.md
+          cml-publish ncf.png --md >> report.md
           
           cml-send-comment report.md
