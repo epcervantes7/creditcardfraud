@@ -9,3 +9,4 @@ for Datalab
 5. Online Prediction Server.ipynb: Para fazer o request foi usado Flask também.
 6. requirements.txt: lista de requerimentos
 
+CI/CD [Check confusion matrix](https://github.com/epcervantes7/creditcardfraud/pull/3)
